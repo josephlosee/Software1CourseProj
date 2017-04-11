@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="10" vgap="10" fx:controller="C482JLProj.Controller" prefHeight="486.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text text="Inventory Management" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+         <children>
+            <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Button text="Search">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <TextField>
+
+                  </TextField>
+               </children>
+            </HBox>
+            <Text text="Parts" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+
+            <TableView GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" fx:id="partsTV">
+               <columns>
+                  <TableColumn fx:id="partsTVColID" text="ID" prefWidth="100">
+
+                  </TableColumn>
+                  <TableColumn fx:id="partsTVColName" text="Part Name" prefWidth="100">
+
+                  </TableColumn>
+                  <TableColumn fx:id="partsTVColInvLev" text="Inventory Level" prefWidth="100" >
+
+                  </TableColumn>
+                  <TableColumn fx:id="partsTVColPrice" text="Price/Cost per Unit" prefWidth="100">
+
+                  </TableColumn>
+               </columns>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TableView>
+
+            <Button text="Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </Button>
+
+            <Button text="Modify" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button text="Delete" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints minWidth="0.0" percentWidth="25.0" />
+            <ColumnConstraints minWidth="0.0" percentWidth="25.0" />
+            <ColumnConstraints maxWidth="90.0" minWidth="0.0" percentWidth="25.0" prefWidth="88.0" />
+            <ColumnConstraints maxWidth="107.0" minWidth="0.0" percentWidth="25.0" prefWidth="79.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
