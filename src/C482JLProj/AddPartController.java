@@ -3,10 +3,7 @@ package C482JLProj;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.control.Control;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import javax.swing.*;
@@ -17,7 +14,14 @@ import javax.swing.*;
 public class AddPartController {
     @FXML     ToggleGroup PartTypeGroup;
     @FXML     HBox osBox, ihBox;
+    @FXML     TextField machNameField, compNameField;
+    String sMachFieldDefText = "Machine ID", sCompNameFieldDefText="Company Name";
+
     @FXML public void radioToggled(ActionEvent e){
+        machNameField.clear();
+        compNameField.clear();
+        machNameField.setPromptText(sMachFieldDefText);
+        compNameField.setPromptText(sCompNameFieldDefText);
         RadioButton selectedToggle = (RadioButton)PartTypeGroup.getSelectedToggle();
         if (selectedToggle.getId().equals("apIHRadio")){
             ihBox.setVisible(true);
@@ -44,6 +48,7 @@ public class AddPartController {
     @FXML public void addPartCancel(ActionEvent e)
     {
         Control source = (Control) e.getSource();
+        M
         //source.getScene().get
     }
 }

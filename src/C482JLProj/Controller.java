@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 //TODO: Make 3 controllers?
 public class Controller {
     //@FXML private ObservableArray<Part> partObservableList; //Needed for the parts list, add ModelList for selection
+    //@FXML private ObservableArray<Product> prodObservableList;
     //@FXML private TableView partsTable, productTable //needed for InvMgmt products and parts
     //@FXML private Button addPartButton, modPartButton, delPartButton, addProdButton, modProdButton, delProdButton, searchButton
 
@@ -17,6 +18,15 @@ public class Controller {
     @FXML private Text actionTarget;
     @FXML private Button testButton;
 
+    public void invPartSearchButton(ActionEvent e){
+        Inventory inventory = Main.getInventory();
+        //get search field text
+        ////if empty, display the full parts list
+        //do a search on the names
+        //display the results in the box
+
+
+    }
     @FXML public void handleButtonTest(ActionEvent e){
 
         //Inhouse test = new Inhouse();

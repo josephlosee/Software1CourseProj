@@ -13,6 +13,7 @@ public class Main extends Application {
 
     protected static List<Part> partsList;
     protected static List<Product> productList;
+    private static Inventory testInv = new Inventory();
     @Override
     public void start(Stage primaryStage) throws Exception{
         partsList = new ArrayList<>();
@@ -34,8 +35,10 @@ public class Main extends Application {
     public static void main(String[] args) {
         Inhouse privTest = new Inhouse();
         privTest.setPartID(01);
-
-
         launch(args);
+    }
+
+    public static Inventory getInventory(){
+        return testInv;
     }
 }
