@@ -3,6 +3,7 @@ package C482JLProj;
 import javafx.collections.ObservableArray;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -17,15 +18,18 @@ public class Controller {
     @FXML private TextField targetText;
     @FXML private Text actionTarget;
     @FXML private Button testButton;
+    @FXML private Button addPartButton;
 
-    public void invPartSearchButton(ActionEvent e){
+    @FXML public void invPartSearchButton(ActionEvent e){
         Inventory inventory = Main.getInventory();
         //get search field text
         ////if empty, display the full parts list
         //do a search on the names
         //display the results in the box
+    }
 
-
+    @FXML public void addPartButtonClick(ActionEvent e){
+        //Main.getAddPartStage().show();
     }
     @FXML public void handleButtonTest(ActionEvent e){
 

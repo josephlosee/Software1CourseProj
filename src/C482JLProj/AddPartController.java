@@ -3,8 +3,11 @@ package C482JLProj;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import javax.swing.*;
 
@@ -37,9 +40,14 @@ public class AddPartController {
     @FXML public void addPartSave(ActionEvent e)
     {
         try {
-           Part addedPart;
+           if (ihBox.isVisible()){
+               //TODO create in house part
+           }
+           else{
+               //TODO create outsourced part
+           }
         }catch(Exception except){
-
+            //TODO Display error message prompt
         }
     }
 
@@ -47,8 +55,13 @@ public class AddPartController {
 
     @FXML public void addPartCancel(ActionEvent e)
     {
-        Control source = (Control) e.getSource();
-        M
+        Node source = (Node) e.getSource();
+        Window window = source.getScene().getWindow();
+        if (window instanceof Stage){
+            ((Stage) window).hide();
+        }
+
+        //M
         //source.getScene().get
     }
 }

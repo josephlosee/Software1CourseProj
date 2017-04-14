@@ -49,7 +49,7 @@
             <Text text="Machine ID"/>
             <TextField fx:id="machNameField" promptText="Machine ID"/>
         </HBox>
-        <HBox GridPane.rowIndex="8" GridPane.halignment="RIGHT">
+        <HBox GridPane.columnIndex="2" GridPane.rowIndex="8" GridPane.halignment="RIGHT">
             <Button text="Save" onAction="#addPartSave"/>
             <Button text="Cancel" onAction="#addPartCancel"/>
         </HBox>
