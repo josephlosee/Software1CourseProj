@@ -1,14 +1,43 @@
 package C482JLProj;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  * ${FILENAME}
  * Created by Joseph Losee on 4/6/2017.
  */
 public abstract class Part {
     private String name;
-    private int partID, instock, min=0, max=1;
+    private int partID, instock=1, min=0, max=4;
     private double price;
     private static int nextPartID= -1;
+
+    public Part(){
+        name="GenericPart";//+getNextPartID();
+        this.setPartID(getNextPartID());
+        this.setPrice(1.66);
+    }
+
+    //StringProperties for the cell factory:
+    private final SimpleStringProperty partNameProp = new SimpleStringProperty(this.getName());
+    private final SimpleStringProperty partPriceProp = new SimpleStringProperty("$"+this.getPrice());
+
+    public SimpleStringProperty partNamePropProperty() {
+        return partNameProp;
+    }
+
+    public SimpleStringProperty partPricePropProperty() {
+        return partPriceProp;
+    }
+    public SimpleStringProperty partIDPropProperty() {
+        return partIDProp;
+    }
+    public SimpleStringProperty partInvPropProperty() {
+        return partInvProp;
+    }
+
+    private final SimpleStringProperty partIDProp = new SimpleStringProperty(""+this.getPartID());
+    private final SimpleStringProperty partInvProp = new SimpleStringProperty(""+this.getInstock());
 
     public static int getNextPartID()
     {
@@ -17,10 +46,16 @@ public abstract class Part {
     }
 
     public String getName() {return name;}
-    public void setName(String sNewName) {name = sNewName;}
+    public void setName(String sNewName) {
+        name = sNewName;
+        partNameProp.set(sNewName);
+    }
 
     public double getPrice(){return price;}
-    public void setPrice(double dNewPrice){price = dNewPrice;}
+    public void setPrice(double dNewPrice){
+        price = dNewPrice;
+        partPriceProp.set("$"+String.format("%1.2f", dNewPrice));
+    }
 
     public int getInstock(){return instock;}
 
@@ -33,11 +68,12 @@ public abstract class Part {
             }
             else{
                 this.instock=iNewStock;
+                partInvProp.set(""+iNewStock);
             }
     }
 
     public int getPartID(){return partID;}
-    public void setPartID(int iNewID){partID=iNewID;}
+    public void setPartID(int iNewID){partID=iNewID; partIDProp.set(""+iNewID);}
 
     /**
      *
@@ -49,7 +85,7 @@ public abstract class Part {
      * @param iNewMin
      */
     public void setMin(int iNewMin) throws Exception   {
-        if (iNewMin > this.max){
+        if (iNewMin < this.max){
             this.min = iNewMin;
         }
         else {

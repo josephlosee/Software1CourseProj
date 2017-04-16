@@ -9,9 +9,22 @@ import java.util.ArrayList;
 public class Inventory {
     private ArrayList<Product> products = new ArrayList<>();
 
+    public ArrayList<Part> getParts() {
+        return parts;
+    }
+
+    private ArrayList<Part> parts = new ArrayList<>();
+
+    public Inventory(){
+        parts.add(new Inhouse());
+        parts.add(new Outsourced());
+        products.add(new Product());
+    }
+
     public boolean removeProduct(int iIndex){
         return products.remove(iIndex)!=null;
     }
+
     public Product lookupProduct(int iIndex){
         Product lookup = null;
         try {
@@ -37,6 +50,10 @@ public class Inventory {
 
     public void addProduct(Product newProd){
         products.add(newProd);
+    }
+
+    public void addPart(Part newPart){
+        parts.add(newPart);
     }
 
 

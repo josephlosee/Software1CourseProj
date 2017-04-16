@@ -8,7 +8,8 @@ public class Inhouse extends Part{
     private int machineID;
 
     public Inhouse(){
-
+        this.setName("IHPart"+getPartID());
+        this.setPrice(3.66);
     }
 
     public Inhouse(int partID, String partName, double price, int stock, int min, int max, int machineID ) throws Exception{
@@ -18,8 +19,9 @@ public class Inhouse extends Part{
         if (max < min){
             throw new Exception("Max cannot be less than min");
         }
-        setMin(min);
         setMax(max);
+        setMin(min);
+
         setPartID(partID);
         setPrice(price);
         setName(partName);

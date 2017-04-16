@@ -8,7 +8,8 @@ public class Outsourced extends Part {
     private String companyName;
 
     public Outsourced(){
-
+        this.setName("OSPart"+getPartID());
+        this.setPrice(1.66);
     }
 
     public Outsourced(int partID, String partName, double price, int stock, int min, int max, String companyName ) throws Exception{
