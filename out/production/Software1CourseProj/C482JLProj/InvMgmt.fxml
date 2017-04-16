@@ -6,6 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane hgap="10" vgap="10" fx:controller="C482JLProj.Main" prefHeight="486.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text text="Inventory Management" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
@@ -36,16 +37,12 @@
             <TableView GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" fx:id="partsTV">
                <columns>
                   <TableColumn fx:id="partsTVColID" text="ID" prefWidth="100">
-
                   </TableColumn>
                   <TableColumn fx:id="partsTVColName" text="Part Name" prefWidth="100">
-
                   </TableColumn>
                   <TableColumn fx:id="partsTVColInvLev" text="Inventory Level" prefWidth="100" >
-
                   </TableColumn>
                   <TableColumn fx:id="partsTVColPrice" text="Price/Cost per Unit" prefWidth="100">
-
                   </TableColumn>
                </columns>
                <GridPane.margin>

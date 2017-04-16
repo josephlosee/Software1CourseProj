@@ -35,5 +35,9 @@ public class Inventory {
         return products;
     }
 
+    public void addProduct(Product newProd){
+        products.add(newProd);
+    }
+
 
 }
