@@ -9,17 +9,32 @@ import java.util.ArrayList;
  * Created by Joseph Losee on 4/6/2017.
  */
 public class Product{
-    private ArrayList<Part> parts;
+    private ArrayList<Part> parts = new ArrayList<>();
     private int productID;
     private int instock, min=0, max=1;
     private double price;
     private static int nextProdID= -1;
-    private String name = "No name set";
+    private String name;
+
+    public Product(){
+
+    }
+//TODO: Make full constructor that throws exceptions from mutator methods, or a setAllMethod?
+    public Product(String name){
+        try {
+            this.setName(name);
+        }catch(Exception e){
+
+        }
+    }
 
     //UML required accessor/mutator methods:
     public String getName() {        return name;    }
 
-    public void setName(String name) {
+    public void setName(String name) throws Exception {
+        if (name== null || name.trim().equals("")){
+            throw new Exception("Name cannot be blank");
+        }
         this.name = name;
         prodNameProp.set(name);
     }
@@ -86,6 +101,10 @@ public class Product{
         Part updatePart = lookupPart(iPartIndex);
 
         //TODO: STUB // create then showAndWait modify part stage for selected index
+    }
+
+    public ArrayList<Part> getPartsList(){
+        return this.parts;
     }
 
     public void setProductID(int iNewID){

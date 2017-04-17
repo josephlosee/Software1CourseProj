@@ -22,6 +22,7 @@ public class ModPartController {
     @FXML RadioButton apIHRadio, apOSRadio;
     String sMachFieldDefText = "Machine ID", sCompNameFieldDefText="Company Name";
     private Part inputPart;
+    private int partIndex;
 
     @FXML public void radioToggled(ActionEvent e){
         machNameField.clear();
@@ -70,7 +71,7 @@ public class ModPartController {
         }
 
         if (addedPart!=null){
-            Main.getInventory().addPart(addedPart);
+            Main.getInventory().updatePart(partIndex, addedPart);
 
             Node source = (Node) e.getSource();
             Window window = source.getScene().getWindow();
@@ -97,6 +98,7 @@ public class ModPartController {
 
     public void modPart(int index, Part moddedPart){
         //Populate the fields
+        this.partIndex = index;
         partPriceField.setText(""+moddedPart.getPrice());
         partIDField.setText(""+moddedPart.getPartID());
         partMinField.setText(""+moddedPart.getMin());

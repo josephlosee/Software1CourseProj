@@ -111,7 +111,6 @@ public abstract class Part {
         else{
             max = iNewMax;
         }
-
     }
 
     @Override public boolean equals(Object o){

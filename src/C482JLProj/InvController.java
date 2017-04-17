@@ -23,8 +23,7 @@ public class InvController {
     @FXML private TextField invPartSearchField, invProdSearchField;
     @FXML private ObservableList<Part> partObservList;
     @FXML private ObservableList<Product> prodsObservList;
-    private Stage addPartStage;
-    private Stage modPartStage;
+    private Stage secondaryStage;
 
     @FXML private void initialize(){
         //partsTableView.getColumns();
@@ -59,10 +58,10 @@ public class InvController {
         }catch (IOException ioExc){
             ioExc.printStackTrace();
         }
-        addPartStage = new Stage();
-        addPartStage.setScene(new Scene(addPartPane));
+        secondaryStage = new Stage();
+        secondaryStage.setScene(new Scene(addPartPane));
 
-        addPartStage.showAndWait();
+        secondaryStage.showAndWait();
 
         partsTableView.refresh();
     }
@@ -85,11 +84,11 @@ public class InvController {
         }
 
         //Resume setting up
-        modPartStage = new Stage();
-        modPartStage.setScene(new Scene(modPartPane));
+        secondaryStage = new Stage();
+        secondaryStage.setScene(new Scene(modPartPane));
 
         //Show and Wait to take away input from the main window
-        modPartStage.showAndWait();
+        secondaryStage.showAndWait();
         partsTableView.refresh();
     }
 
@@ -118,7 +117,19 @@ public class InvController {
     }
 
     @FXML public void addProdButtonClick(ActionEvent e){
+        Parent addPartPane = new GridPane();
 
+        try {
+            addPartPane = FXMLLoader.load(getClass().getResource("AddProd.fxml"));
+        }catch (IOException ioExc){
+            ioExc.printStackTrace();
+        }
+        secondaryStage = new Stage();
+        secondaryStage.setScene(new Scene(addPartPane));
+
+        secondaryStage.showAndWait();
+
+        prodTableView.refresh();
     }
 
     @FXML public void modProdClick(ActionEvent e){

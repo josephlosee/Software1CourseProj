@@ -96,9 +96,5 @@ public class AddPartController {
             ((Stage) window).hide();
         }
 
-        //M
-        //source.getScene().get
     }
-
-
-}
+}//End of File
