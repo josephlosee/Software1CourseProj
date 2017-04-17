@@ -19,6 +19,7 @@ public class Inventory {
         parts.add(new Inhouse());
         parts.add(new Outsourced());
         products.add(new Product());
+        products.add(new Product());
     }
 
     public boolean removeProduct(int iIndex){
@@ -40,7 +41,7 @@ public class Inventory {
         if (update!= null){
 
         }
-        //TODO STUB. What is this function supposed to do?
+        //TODO STUB. Create and show stage
     }
 
     public ArrayList getProductList()
@@ -53,8 +54,13 @@ public class Inventory {
     }
 
     public void addPart(Part newPart){
-        parts.add(newPart);
+            parts.add(newPart);
     }
+
+    public void updatePart(int index, Part updatedPart){
+        parts.set(index, updatedPart);
+    }
+
 
 
 }

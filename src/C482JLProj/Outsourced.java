@@ -10,6 +10,7 @@ public class Outsourced extends Part {
     public Outsourced(){
         this.setName("OSPart"+getPartID());
         this.setPrice(1.66);
+        this.setCompanyName("Stand-in, Inc.");
     }
 
     public Outsourced(int partID, String partName, double price, int stock, int min, int max, String companyName ) throws Exception{

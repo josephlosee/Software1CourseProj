@@ -10,6 +10,7 @@ public class Inhouse extends Part{
     public Inhouse(){
         this.setName("IHPart"+getPartID());
         this.setPrice(3.66);
+        setMachineID(10010);
     }
 
     public Inhouse(int partID, String partName, double price, int stock, int min, int max, int machineID ) throws Exception{
@@ -25,6 +26,7 @@ public class Inhouse extends Part{
         setPartID(partID);
         setPrice(price);
         setName(partName);
+
 
         try {
             setInstock(stock);

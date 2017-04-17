@@ -2,28 +2,26 @@ package C482JLProj;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-import java.io.IOException;
-
 /**
- * Created by Joe on 4/9/2017.
+ * Created by Joe on 4/16/2017.
  */
-public class AddPartController {
+public class ModPartController {
     @FXML  ToggleGroup PartTypeGroup;
     @FXML  HBox osBox, ihBox;
     @FXML  TextField machNameField, compNameField, partMinField, partMaxField;
     @FXML  TextField partInvField, partIDField, partPriceField, partNameField;
+    @FXML RadioButton apIHRadio, apOSRadio;
     String sMachFieldDefText = "Machine ID", sCompNameFieldDefText="Company Name";
+    private Part inputPart;
 
     @FXML public void radioToggled(ActionEvent e){
         machNameField.clear();
@@ -41,15 +39,15 @@ public class AddPartController {
         }
     }
 
-    @FXML public void addPartSave(ActionEvent e)
+    @FXML public void modPartSave(ActionEvent e)
     {
+        //TODO: Make changes to part
         Part addedPart = null;
         if (ihBox.isVisible()){
-            //Create an inhouse part
             //(int partID, String partName, double price, int stock, int min, int max, int machineID )
             Inhouse interrim = null;
             try {
-                interrim = new Inhouse(Part.getNextPartID(), partNameField.getText(), Double.parseDouble(partPriceField.getText()),
+                interrim = new Inhouse(Integer.parseInt(partIDField.getText()), partNameField.getText(), Double.parseDouble(partPriceField.getText()),
                         Integer.parseInt(partInvField.getText()), Integer.parseInt(partMinField.getText()),
                         Integer.parseInt(partMaxField.getText()), Integer.parseInt(machNameField.getText()));
                 addedPart=interrim;
@@ -59,7 +57,6 @@ public class AddPartController {
             }
         }
         else{
-            //Create an outsourced part
             Outsourced interrim = null;
             try {
                 interrim = new Outsourced(Part.getNextPartID(), partNameField.getText(), Double.parseDouble(partPriceField.getText()),
@@ -73,10 +70,8 @@ public class AddPartController {
         }
 
         if (addedPart!=null){
-            //add the part to the inventory list
             Main.getInventory().addPart(addedPart);
 
-            //Close the dialog
             Node source = (Node) e.getSource();
             Window window = source.getScene().getWindow();
             if (window instanceof Stage){
@@ -88,7 +83,7 @@ public class AddPartController {
 
     //@FXML public void toggleGroup
 
-    @FXML public void addPartCancel(ActionEvent e)
+    @FXML public void modPartCancel(ActionEvent e)
     {
         Node source = (Node) e.getSource();
         Window window = source.getScene().getWindow();
@@ -98,6 +93,26 @@ public class AddPartController {
 
         //M
         //source.getScene().get
+    }
+
+    public void modPart(int index, Part moddedPart){
+        //Populate the fields
+        partPriceField.setText(""+moddedPart.getPrice());
+        partIDField.setText(""+moddedPart.getPartID());
+        partMinField.setText(""+moddedPart.getMin());
+        partMaxField.setText(""+moddedPart.getMax());
+        partNameField.setText(moddedPart.getName());
+        partInvField.setText(""+moddedPart.getInstock());
+
+        //Set the machine ID or company namej fields based on toggled radio
+        if (moddedPart instanceof Outsourced){
+            this.PartTypeGroup.selectToggle(apOSRadio);
+            this.radioToggled(null);
+            compNameField.setText(((Outsourced) moddedPart).getCompanyName());
+        }
+        else if (moddedPart instanceof Inhouse){
+            machNameField.setText(""+((Inhouse)moddedPart).getMachineID());
+        }
     }
 
 

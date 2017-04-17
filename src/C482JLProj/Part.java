@@ -21,11 +21,12 @@ public abstract class Part {
     //StringProperties for the cell factory:
     private final SimpleStringProperty partNameProp = new SimpleStringProperty(this.getName());
     private final SimpleStringProperty partPriceProp = new SimpleStringProperty("$"+this.getPrice());
+    private final SimpleStringProperty partIDProp = new SimpleStringProperty(""+this.getPartID());
+    private final SimpleStringProperty partInvProp = new SimpleStringProperty(""+this.getInstock());
 
     public SimpleStringProperty partNamePropProperty() {
         return partNameProp;
     }
-
     public SimpleStringProperty partPricePropProperty() {
         return partPriceProp;
     }
@@ -36,8 +37,7 @@ public abstract class Part {
         return partInvProp;
     }
 
-    private final SimpleStringProperty partIDProp = new SimpleStringProperty(""+this.getPartID());
-    private final SimpleStringProperty partInvProp = new SimpleStringProperty(""+this.getInstock());
+
 
     public static int getNextPartID()
     {
@@ -112,5 +112,14 @@ public abstract class Part {
             max = iNewMax;
         }
 
+    }
+
+    @Override public boolean equals(Object o){
+        boolean result = false;
+        if (o instanceof Part){
+            result = this.getPartID()==((Part) o).getPartID();
+        }
+
+        return result;
     }
 }
