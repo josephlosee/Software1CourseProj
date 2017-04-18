@@ -1,5 +1,12 @@
 package C482JLProj;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -22,8 +29,22 @@ public class Inventory {
         products.add(new Product());
     }
 
-    public boolean removeProduct(int iIndex){
-        return products.remove(iIndex)!=null;
+    public boolean removeProduct(int iIndex) throws Exception{
+        boolean isRemoved = false;
+        Product remProd;
+        try{
+            remProd = products.get(iIndex);
+        } catch (ArrayIndexOutOfBoundsException aioe){
+            throw new Exception ("Index out of bounds "+aioe.getMessage());
+        }
+        if (!remProd.getPartsList().isEmpty()){
+            throw new Exception("Products with parts associated cannot be deleted.");
+        }
+        else{
+            products.remove(iIndex);
+            isRemoved=true;
+        }
+        return isRemoved;
     }
 
     public Product lookupProduct(int iIndex){
@@ -36,12 +57,38 @@ public class Inventory {
         return lookup;
     }
 
+    //Todo: make the calls to create the AddProd/ModProd stage ehre
     public void updateProduct(int iIndex){
-        Product update = products.get(iIndex);
-        if (update!= null){
+        Product updateProd;
+        try {
+            updateProd = products.get(iIndex);
+            //Setup to show the window
+            Parent modProdPane = new GridPane();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProd.fxml"));
+            try {
+                //Setup the parent
+                modProdPane = (Parent)loader.load();
+                //Get the reference to the controller class so
+                AddProdController controller =loader.<AddProdController>getController();
+                //We can populate the view with the part to be modified.
+                controller.setProduct(updateProd);
+
+            }catch (IOException ioExc){
+                ioExc.printStackTrace();
+            }
+
+            //Resume setting up
+            Stage secondaryStage = new Stage();
+            secondaryStage.setScene(new Scene(modProdPane));
+
+            //Show and Wait to take away input from the main window
+            secondaryStage.showAndWait();
+
+
+
+        } catch (Exception e){
 
         }
-        //TODO STUB. Create and show stage
     }
 
     public ArrayList getProductList()
@@ -49,8 +96,13 @@ public class Inventory {
         return products;
     }
 
-    public void addProduct(Product newProd){
-        products.add(newProd);
+    public void addProduct(Product newProd) throws Exception{
+        if (newProd.getPartsList().size() == 0){
+            throw new Exception("A product must have at least one part.");
+        }
+        else {
+            products.add(newProd);
+        }
     }
 
     public void addPart(Part newPart){

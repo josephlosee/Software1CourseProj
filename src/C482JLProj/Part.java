@@ -7,20 +7,20 @@ import javafx.beans.property.SimpleStringProperty;
  * Created by Joseph Losee on 4/6/2017.
  */
 public abstract class Part {
-    private String name;
+    private String name = "Placeholder";
     private int partID, instock=1, min=0, max=4;
-    private double price;
+    private double price =0;
     private static int nextPartID= -1;
 
     public Part(){
         name="GenericPart";//+getNextPartID();
         this.setPartID(getNextPartID());
-        this.setPrice(1.66);
+        this.setPrice(1.6649);
     }
 
     //StringProperties for the cell factory:
     private final SimpleStringProperty partNameProp = new SimpleStringProperty(this.getName());
-    private final SimpleStringProperty partPriceProp = new SimpleStringProperty("$"+this.getPrice());
+    private final SimpleStringProperty partPriceProp = new SimpleStringProperty("$"+String.format("%.2f", this.getPrice()));
     private final SimpleStringProperty partIDProp = new SimpleStringProperty(""+this.getPartID());
     private final SimpleStringProperty partInvProp = new SimpleStringProperty(""+this.getInstock());
 
@@ -89,7 +89,7 @@ public abstract class Part {
             this.min = iNewMin;
         }
         else {
-            throw new Exception("Minimum cannot be great than the maximum.");
+            throw new Exception("Minimum ("+iNewMin+") cannot be greater than the maximum("+this.max+ ").");
         }
 
     }
@@ -106,7 +106,7 @@ public abstract class Part {
      */
     public void setMax(int iNewMax) throws Exception{
         if (iNewMax < this.min){
-            throw new Exception("Maximum cannot exceed minimum");
+            throw new Exception("Maximum ("+iNewMax+") cannot be less than the minimum("+this.min+ ").");
         }
         else{
             max = iNewMax;
@@ -120,5 +120,9 @@ public abstract class Part {
         }
 
         return result;
+    }
+
+    @Override public int hashCode(){
+        return (int) (name.hashCode()*partID+price*100);
     }
 }

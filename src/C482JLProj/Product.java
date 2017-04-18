@@ -1,8 +1,10 @@
 package C482JLProj;
 
+import com.sun.javafx.binding.StringFormatter;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 /**
  * ${FILENAME}
@@ -10,16 +12,17 @@ import java.util.ArrayList;
  */
 public class Product{
     private ArrayList<Part> parts = new ArrayList<>();
-    private int productID;
-    private int instock, min=0, max=1;
+    private int productID = -2; //flag value
+    private int instock=0, min=0, max=1;
     private double price;
     private static int nextProdID= -1;
-    private String name;
+    private String name ="Placeholder";
 
     public Product(){
 
     }
-//TODO: Make full constructor that throws exceptions from mutator methods, or a setAllMethod?
+
+    //Used for testing
     public Product(String name){
         try {
             this.setName(name);
@@ -35,28 +38,73 @@ public class Product{
         if (name== null || name.trim().equals("")){
             throw new Exception("Name cannot be blank");
         }
-        this.name = name;
-        prodNameProp.set(name);
+        else{
+            this.name = name;
+            prodNameProp.set(name);
+        }
     }
 
     public int getInstock() {        return instock;    }
 
-    public void setInstock(int instock) {
-        this.instock = instock;
-        prodInvProp.set(""+instock);
+    public void setInstock(int iNewStock) throws Exception {
+        if (iNewStock < min){
+            throw new Exception("Inventory cannot be below the minimum amount.");
+        }
+        else if (iNewStock > max){
+            throw new Exception("Inventory cannot exceed the maximum amount.");
+        }
+        else{
+            this.instock=iNewStock;
+            prodInvProp.set(""+iNewStock);
+        }
     }
 
     public int getMin() {        return min;    }
 
-    public void setMin(int min) {        this.min = min;    }
+    /**
+     *
+     * @param iNewMin
+     */
+    public void setMin(int iNewMin) throws Exception   {
+        if (iNewMin < this.max){
+            this.min = iNewMin;
+        }
+        else {
+            throw new Exception("Minimum ("+iNewMin+") cannot be greater than the maximum("+this.max+ ").");
+        }
+
+    }
 
     public int getMax() {        return max;    }
 
-    public void setMax(int max) {        this.max = max;    }
 
+    public void setMax(int iNewMax) throws Exception{
+        if (iNewMax < this.min){
+            throw new Exception("Maximum ("+iNewMax+") cannot be less than the minimum("+this.min+ ").");
+        }
+        else{
+            max = iNewMax;
+        }
+    }
+
+    //DONE
     public double getPrice() {        return price;    }
 
-    public void setPrice(double price) { this.price = price;    }
+    //DONE
+    public void setPrice(double dNewPrice) throws Exception{
+        double partsPriceSum = 0;
+        for (Part p:parts){
+            partsPriceSum+=p.getPrice();
+        }
+        if (partsPriceSum > dNewPrice){
+            String excMessage = "Product price cannot be less than the sum of parts $"+ String.format("%.2f", partsPriceSum);
+            throw new Exception(excMessage);
+        }
+        else{
+            this.price=dNewPrice;
+            this.prodPriceProp.set("$"+String.format("%.2f", dNewPrice));
+        }
+    }
 
     public static int getNextProdID() {
         nextProdID++;
@@ -122,9 +170,13 @@ public class Product{
         return result;
     }
 
+    @Override public int hashCode(){
+        return (int) (name.hashCode()*productID+price*(100));
+    }
+
     //StringProperties for the cell factory:
     private final SimpleStringProperty prodNameProp = new SimpleStringProperty(this.getName());
-    private final SimpleStringProperty prodPriceProp = new SimpleStringProperty("$"+this.getPrice());
+    private final SimpleStringProperty prodPriceProp = new SimpleStringProperty("$"+String.format("%.2f", this.getPrice()));
     private final SimpleStringProperty prodIDProp = new SimpleStringProperty(""+this.getProductID());
     private final SimpleStringProperty prodInvProp = new SimpleStringProperty(""+this.getInstock());
 
@@ -135,6 +187,6 @@ public class Product{
     public SimpleStringProperty prodPricePropProperty() {        return prodPriceProp;    }
     public String getProdIDProp() {        return prodIDProp.get();    }
     public SimpleStringProperty partIDPropProperty() {              return prodIDProp;    }
-    public String getPartInvProp() {return prodInvProp.get();    }
-    public SimpleStringProperty partInvPropProperty() {return prodInvProp;    }
+    public String getProdInvProp() {return prodInvProp.get();    }
+    public SimpleStringProperty prodInvPropProperty() {return prodInvProp;    }
 }

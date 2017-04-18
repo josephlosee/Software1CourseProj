@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -50,31 +47,69 @@ public class AddProdController {
     @FXML public void ProdAddPart(ActionEvent e){
         int index = AllPartTView.getSelectionModel().getSelectedIndex();
         try {
-            prodsObservList.add(allPartsObservList.get(index));
+            //prodsObservList.add(allPartsObservList.get(index));
+            addedProduct.getPartsList().add(allPartsObservList.get(index));
         }catch (ArrayIndexOutOfBoundsException exc)
         {
             Alert error = new Alert(Alert.AlertType.ERROR, "Select a part to add.");
             error.showAndWait();
         }
+        //clear the selection in the Prod Parts Table View
+        ProdPartTView.getSelectionModel().clearSelection();
         ProdPartTView.refresh();
+
     }
 
+    //DONE
     @FXML public void ProdDelPart(ActionEvent e){
         int index = ProdPartTView.getSelectionModel().getSelectedIndex();
         //TODO: remove from product parts list for mod part?
-        prodsObservList.remove(index);
+        addedProduct.removePart(index);
+        ProdPartTView.getSelectionModel().clearSelection();
+        ProdPartTView.refresh();
 
     }
 
+
     @FXML public void ProdSave(ActionEvent e){
-        //TODO
+        try{
+            addedProduct.setName(ProdName.getText());
+            addedProduct.setPrice(Double.parseDouble(ProdPrice.getText()));
+            addedProduct.setMax(Integer.parseInt(ProdMax.getText()));
+            addedProduct.setMin(Integer.parseInt(ProdMin.getText()));
+            addedProduct.setInstock(Integer.parseInt(ProdInv.getText()));
+            if (addedProduct.getProductID() < 0){
+                addedProduct.setProductID(Product.getNextProdID());
+            }
+            Main.getInventory().addProduct(addedProduct);
+            Node source = (Node) e.getSource();
+            Window window = source.getScene().getWindow();
+            window.hide();
+        } catch (Exception e1) {
+            Alert error = new Alert(Alert.AlertType.ERROR, e1.getMessage());
+            error.showAndWait();
+        }
     }
 
     @FXML public void ProdCancel(ActionEvent e){
         Node source = (Node) e.getSource();
         Window window = source.getScene().getWindow();
         if (window instanceof Stage){
-            ((Stage) window).hide();
+            Alert confirmCancel = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes?");
+            confirmCancel.showAndWait()
+                    .filter(response-> response==ButtonType.OK)
+                    .ifPresent(response->window.hide());
         }
+        //Close the window
+
+    }
+
+    public void setProduct(Product modProd){
+        addedProduct = modProd;
+        ProdMax.setText(String.valueOf(modProd.getMax()));
+        ProdMin.setText(String.valueOf(modProd.getMin()));
+        ProdInv.setText(String.valueOf(modProd.getInstock()));
+        ProdName.setText(modProd.getName());
+        ProdPrice.setText(String.valueOf(modProd.getPrice()));
     }
 }

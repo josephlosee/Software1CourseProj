@@ -5,11 +5,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -89,6 +91,7 @@ public class InvController {
 
         //Show and Wait to take away input from the main window
         secondaryStage.showAndWait();
+        partsTableView.getSelectionModel().clearSelection();
         partsTableView.refresh();
     }
 
@@ -126,18 +129,45 @@ public class InvController {
         }
         secondaryStage = new Stage();
         secondaryStage.setScene(new Scene(addPartPane));
-
         secondaryStage.showAndWait();
 
+        Node source = (Node) e.getSource();
+        Window window = source.getScene().getWindow();
+        window.hide();
+        Stage currentStage = (Stage)window;
+        currentStage.show();
+
         prodTableView.refresh();
+        prodTableView.getSelectionModel().clearSelection();
     }
 
     @FXML public void modProdClick(ActionEvent e){
+        int index = prodTableView.getSelectionModel().getSelectedIndex();
 
+        Node source = (Node) e.getSource();
+        Window window = source.getScene().getWindow();
+        window.hide();
+
+        Main.getInventory().updateProduct(index);
+
+        Stage currentStage = (Stage)window;
+        currentStage.show();
+
+        prodTableView.refresh();
+        prodTableView.getSelectionModel().clearSelection();
     }
 
     @FXML public void delProdButtonClick(ActionEvent e){
-
+        int index = prodTableView.getSelectionModel().getSelectedIndex();
+        try {
+            Main.getInventory().removeProduct(index);
+        }
+        catch (Exception e1){
+            Alert error = new Alert(Alert.AlertType.ERROR, e1.getMessage());
+            error.showAndWait();
+        }
+        prodTableView.refresh();
+        prodTableView.getSelectionModel().clearSelection();
     }
 
 }
