@@ -8,7 +8,11 @@ public class Outsourced extends Part {
     private String companyName;
 
     public Outsourced(){
-        this.setName("OSPart"+getPartID());
+        try {
+            this.setName("OSPart"+getPartID());
+        } catch (Exception e){
+            //Do nothing, the name is not blank, which would cause the exception
+        }
         this.setPrice(1.66);
         this.setCompanyName("Stand-in, Inc.");
     }

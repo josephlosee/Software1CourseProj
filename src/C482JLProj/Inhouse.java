@@ -8,7 +8,11 @@ public class Inhouse extends Part{
     private int machineID;
 
     public Inhouse(){
-        this.setName("IHPart"+getPartID());
+        try {
+            this.setName("IHPart"+getPartID());
+        }catch (Exception e){
+            //do nothing, being set.
+        }
         this.setPrice(3.66);
         setMachineID(10010);
     }

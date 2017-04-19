@@ -13,8 +13,8 @@ public abstract class Part {
     private static int nextPartID= -1;
 
     public Part(){
-        name="GenericPart";//+getNextPartID();
-        this.setPartID(getNextPartID());
+        name="GenericPart";
+        //this.setPartID(0);
         this.setPrice(1.6649);
     }
 
@@ -46,7 +46,10 @@ public abstract class Part {
     }
 
     public String getName() {return name;}
-    public void setName(String sNewName) {
+    public void setName(String sNewName) throws Exception{
+        if (sNewName.trim().isEmpty()){
+            throw new Exception("Part name cannot be blank.");
+        }
         name = sNewName;
         partNameProp.set(sNewName);
     }

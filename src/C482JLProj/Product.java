@@ -148,7 +148,7 @@ public class Product{
     public void updatePart(int iPartIndex){
         Part updatePart = lookupPart(iPartIndex);
 
-        //TODO: STUB // create then showAndWait modify part stage for selected index
+
     }
 
     public ArrayList<Part> getPartsList(){
@@ -186,7 +186,7 @@ public class Product{
     public String getProdPriceProp() {        return prodPriceProp.get();    }
     public SimpleStringProperty prodPricePropProperty() {        return prodPriceProp;    }
     public String getProdIDProp() {        return prodIDProp.get();    }
-    public SimpleStringProperty partIDPropProperty() {              return prodIDProp;    }
+    public SimpleStringProperty prodIDPropProperty() {              return prodIDProp;    }
     public String getProdInvProp() {return prodInvProp.get();    }
     public SimpleStringProperty prodInvPropProperty() {return prodInvProp;    }
 }

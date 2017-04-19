@@ -64,35 +64,66 @@ public class InvController {
         secondaryStage.setScene(new Scene(addPartPane));
 
         secondaryStage.showAndWait();
+        partTableSelectWorkaround();
 
-        partsTableView.refresh();
+    }
+
+    //Workaround for new items not being selectable.
+    private void partTableSelectWorkaround(){
+        partsTableView.getSortOrder().setAll(partsTableView.getColumns());
+        partsTableView.getSortOrder().clear();
+    }
+
+    private void prodTableSelectWorkAround(){
+        prodTableView.getSortOrder().setAll(prodTableView.getColumns());
+        prodTableView.getSortOrder().clear();
     }
 
     @FXML public void modPartClick(ActionEvent e){
 
+        int index = partsTableView.getSelectionModel().getSelectedIndex();
+
+        if (index>=0){
+            Node source = (Node) e.getSource();
+            Window window = source.getScene().getWindow();
+            window.hide();
+            Main.getInventory().updatePart(index);
+
+            Stage currentStage = (Stage)window;
+            currentStage.show();
+
+            partTableSelectWorkaround();
+        }
+
+        /*
         //Setup to show the window
         Parent modPartPane = new GridPane();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModPart.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPart.fxml"));
         try {
             //Setup the parent
             modPartPane = (Parent)loader.load();
             //Get the reference to the controller class so
-            ModPartController controller =loader.<ModPartController>getController();
+            AddPartController controller =loader.<AddPartController>getController();
             //We can populate the view with the part to be modified.
             int index = partsTableView.getSelectionModel().getSelectedIndex();
-            controller.modPart(index, partObservList.get(index));
+            if (index >= 0) {
+                Part partToModify= partObservList.get(index);
+
+                controller.modPart(index, partToModify);
+
+                //Resume setting up
+                secondaryStage = new Stage();
+                secondaryStage.setScene(new Scene(modPartPane));
+
+
+
+                //Show and Wait to take away input from the main window
+                secondaryStage.showAndWait();
+            }
         }catch (IOException ioExc){
             ioExc.printStackTrace();
-        }
+        }*/
 
-        //Resume setting up
-        secondaryStage = new Stage();
-        secondaryStage.setScene(new Scene(modPartPane));
-
-        //Show and Wait to take away input from the main window
-        secondaryStage.showAndWait();
-        partsTableView.getSelectionModel().clearSelection();
-        partsTableView.refresh();
     }
 
     //TODO: Add logic to the data model in Inventory to prevent parts from being deleted if assigned to a product. Wishing for SQL
@@ -100,12 +131,13 @@ public class InvController {
         int index = partsTableView.getSelectionModel().getSelectedIndex();
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Delete the "+partObservList.get(index).getName()+"?");
 
+        //
         //Using lambdas to get used to them.
         confirmation.showAndWait()
                 .filter(response->response==ButtonType.OK)
                 .ifPresent(response->partObservList.remove(index));
 
-        partsTableView.refresh();
+        partTableSelectWorkaround();
     }
 
     @FXML public void invProdSearchButton(ActionEvent e){
@@ -129,18 +161,24 @@ public class InvController {
         }
         secondaryStage = new Stage();
         secondaryStage.setScene(new Scene(addPartPane));
-        secondaryStage.showAndWait();
 
         Node source = (Node) e.getSource();
         Window window = source.getScene().getWindow();
         window.hide();
         Stage currentStage = (Stage)window;
+
+        secondaryStage.showAndWait();
+
+
         currentStage.show();
 
-        prodTableView.refresh();
-        prodTableView.getSelectionModel().clearSelection();
+        prodTableSelectWorkAround();
     }
 
+    /**
+     * Handling for modify product button.
+     * @param e
+     */
     @FXML public void modProdClick(ActionEvent e){
         int index = prodTableView.getSelectionModel().getSelectedIndex();
 
@@ -153,10 +191,13 @@ public class InvController {
         Stage currentStage = (Stage)window;
         currentStage.show();
 
-        prodTableView.refresh();
-        prodTableView.getSelectionModel().clearSelection();
+        prodTableSelectWorkAround();
     }
 
+    /**
+     * Handling for product delete button
+     * @param e
+     */
     @FXML public void delProdButtonClick(ActionEvent e){
         int index = prodTableView.getSelectionModel().getSelectedIndex();
         try {
@@ -166,8 +207,7 @@ public class InvController {
             Alert error = new Alert(Alert.AlertType.ERROR, e1.getMessage());
             error.showAndWait();
         }
-        prodTableView.refresh();
-        prodTableView.getSelectionModel().clearSelection();
+        prodTableSelectWorkAround();
     }
 
 }

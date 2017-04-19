@@ -23,12 +23,12 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1">
          <children>
             <Button fx:id="ProdSearchForPart" mnemonicParsing="false" onAction="#prodSearchForPart" prefWidth="52.0" text="Search" />
-            <TextField fx:id="ProdPartSearch" prefHeight="25.0" prefWidth="209.0" />
+            <TextField fx:id="prodPartSearch" prefHeight="25.0" prefWidth="209.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="176.0" prefWidth="240.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product" fx:id="prodTitle">
                <font>
                   <Font size="24.0" />
                </font>
@@ -69,7 +69,7 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <TableView fx:id="ProdPartTView" prefHeight="200.0" prefWidth="440.0">
+            <TableView fx:id="productPartsTableView" prefHeight="200.0" prefWidth="440.0">
                <columns>
                    <TableColumn prefWidth="77.0" text="Part ID">
                        <cellValueFactory><PropertyValueFactory property="partIDProp" /> </cellValueFactory>
@@ -118,7 +118,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
                <children>
                   <Label prefHeight="17.0" prefWidth="32.0" text="ID" />
-                  <TextField editable="false" prefHeight="25.0" prefWidth="128.0" promptText="Auto Gen - Disabled" />
+                  <TextField fx:id="prodID" editable="false" prefHeight="25.0" prefWidth="128.0" promptText="Auto Gen - Disabled" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -127,7 +127,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
                <children>
                   <Label prefWidth="32.0" text="Max" />
-                  <TextField fx:id="ProdMax" prefHeight="25.0" prefWidth="64.0" promptText="Max" HBox.hgrow="NEVER" />
+                  <TextField fx:id="prodMax" prefHeight="25.0" prefWidth="64.0" promptText="Max" HBox.hgrow="NEVER" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -136,7 +136,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
                <children>
                   <Label prefWidth="32.0" text="Min" />
-                  <TextField fx:id="ProdMin" prefHeight="25.0" prefWidth="64.0" promptText="Min" HBox.hgrow="NEVER" />
+                  <TextField fx:id="prodMin" prefHeight="25.0" prefWidth="64.0" promptText="Min" HBox.hgrow="NEVER" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -145,7 +145,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
                <children>
                   <Label prefWidth="32.0" text="Inv" />
-                  <TextField fx:id="ProdInv" prefHeight="25.0" prefWidth="64.0" promptText="Inv" />
+                  <TextField fx:id="prodInv" prefHeight="25.0" prefWidth="64.0" promptText="Inv" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -154,7 +154,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <children>
                   <Label prefWidth="32.0" text="Name" />
-                  <TextField fx:id="ProdName" prefHeight="25.0" prefWidth="128.0" promptText="Product Name" />
+                  <TextField fx:id="prodName" prefHeight="25.0" prefWidth="128.0" promptText="Product Name" />
                </children>
                <padding>
                   <Insets left="5.0" />
@@ -163,7 +163,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="200.0" spacing="20.0" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
                <children>
                   <Label prefWidth="32.0" text="Price" />
-                  <TextField fx:id="ProdPrice" prefHeight="25.0" prefWidth="64.0" promptText="Price" />
+                  <TextField fx:id="prodPrice" prefHeight="25.0" prefWidth="64.0" promptText="Price" />
                </children>
 
                <padding>

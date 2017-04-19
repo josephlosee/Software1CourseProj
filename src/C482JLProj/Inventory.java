@@ -1,10 +1,12 @@
 package C482JLProj;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,7 +63,7 @@ public class Inventory {
     public void updateProduct(int iIndex){
         Product updateProd;
         try {
-            updateProd = products.get(iIndex);
+            updateProd = this.lookupProduct(iIndex);
             //Setup to show the window
             Parent modProdPane = new GridPane();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProd.fxml"));
@@ -76,15 +78,12 @@ public class Inventory {
             }catch (IOException ioExc){
                 ioExc.printStackTrace();
             }
-
             //Resume setting up
             Stage secondaryStage = new Stage();
             secondaryStage.setScene(new Scene(modProdPane));
 
             //Show and Wait to take away input from the main window
             secondaryStage.showAndWait();
-
-
 
         } catch (Exception e){
 
@@ -97,7 +96,7 @@ public class Inventory {
     }
 
     public void addProduct(Product newProd) throws Exception{
-        if (newProd.getPartsList().size() == 0){
+        if (newProd.getPartsList().size() == 0) {
             throw new Exception("A product must have at least one part.");
         }
         else {
@@ -109,10 +108,57 @@ public class Inventory {
             parts.add(newPart);
     }
 
-    public void updatePart(int index, Part updatedPart){
-        parts.set(index, updatedPart);
+    public void updatePart(int index){
+        Stage secondaryStage;
+        //Setup to show the window
+        Parent modPartPane = new GridPane();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPart.fxml"));
+        try {
+            //Setup the parent
+            modPartPane = (Parent)loader.load();
+            //Get the reference to the controller class so
+            AddPartController controller =loader.<AddPartController>getController();
+            //We can populate the view with the part to be modified.
+            if (index >= 0) {
+                Part partToModify= this.getParts().get(index);
+
+                controller.modPart(index, partToModify);
+
+                //Resume setting up
+                secondaryStage = new Stage();
+                secondaryStage.setScene(new Scene(modPartPane));
+
+                //Show and Wait to take away input from the main window
+                secondaryStage.showAndWait();
+
+                Part possibleChangedPart = this.getParts().get(index);
+
+                if (((possibleChangedPart instanceof Inhouse && partToModify instanceof Outsourced) ||
+                    (possibleChangedPart instanceof Outsourced && partToModify instanceof Inhouse))){
+                    //It's changed!
+                    propagatePartChanged(index, possibleChangedPart);
+                }
+            }
+        }catch (IOException ioExc){
+            ioExc.printStackTrace();
+        }
     }
 
+    /**
+     * Propagates parts that have changed properties from Inhouse to Outsourced to all affected products.
+     * @param index
+     * @param changedPart
+     */
+    public void propagatePartChanged(int index, Part changedPart){
+        parts.set(index, changedPart);
+        int changePartID = changedPart.getPartID();
 
-
+        for (Product p:products){
+            for (int i=0; i<p.getPartsList().size(); i++){
+                if (p.getPartsList().get(i).getPartID()==changePartID){
+                    p.getPartsList().set(i, changedPart);
+                }
+            }
+        }
+    }
 }

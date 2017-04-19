@@ -20,9 +20,10 @@ public class ModPartController {
     @FXML  TextField machNameField, compNameField, partMinField, partMaxField;
     @FXML  TextField partInvField, partIDField, partPriceField, partNameField;
     @FXML RadioButton apIHRadio, apOSRadio;
-    String sMachFieldDefText = "Machine ID", sCompNameFieldDefText="Company Name";
     private Part inputPart;
     private int partIndex;
+    String sMachFieldDefText = "Machine ID", sCompNameFieldDefText="Company Name";
+
 
     @FXML public void radioToggled(ActionEvent e){
         machNameField.clear();
@@ -96,26 +97,7 @@ public class ModPartController {
         //source.getScene().get
     }
 
-    public void modPart(int index, Part moddedPart){
-        //Populate the fields
-        this.partIndex = index;
-        partPriceField.setText(""+moddedPart.getPrice());
-        partIDField.setText(""+moddedPart.getPartID());
-        partMinField.setText(""+moddedPart.getMin());
-        partMaxField.setText(""+moddedPart.getMax());
-        partNameField.setText(moddedPart.getName());
-        partInvField.setText(""+moddedPart.getInstock());
 
-        //Set the machine ID or company namej fields based on toggled radio
-        if (moddedPart instanceof Outsourced){
-            this.PartTypeGroup.selectToggle(apOSRadio);
-            this.radioToggled(null);
-            compNameField.setText(((Outsourced) moddedPart).getCompanyName());
-        }
-        else if (moddedPart instanceof Inhouse){
-            machNameField.setText(""+((Inhouse)moddedPart).getMachineID());
-        }
-    }
 
 
 }
