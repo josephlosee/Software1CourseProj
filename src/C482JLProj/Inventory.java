@@ -1,12 +1,11 @@
 package C482JLProj;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,9 +24,17 @@ public class Inventory {
     private ArrayList<Part> parts = new ArrayList<>();
 
     public Inventory(){
-        parts.add(new Inhouse());
-        parts.add(new Outsourced());
-        products.add(new Product());
+        //Default constructor, sets placeholder options
+        Inhouse ihPlaceholder = new Inhouse();
+        ihPlaceholder.setPartID(Part.getNextPartID());
+        Outsourced ohPlaceholder = new Outsourced();
+        ohPlaceholder.setPartID(Part.getNextPartID());
+
+        Product placeholder = new Product();
+        placeholder.setProductID(Product.getNextProdID());
+
+        parts.add(ihPlaceholder);
+        parts.add(ohPlaceholder);
         products.add(new Product());
     }
 
@@ -41,8 +48,7 @@ public class Inventory {
         }
         if (!remProd.getPartsList().isEmpty()){
             throw new Exception("Products with parts associated cannot be deleted.");
-        }
-        else{
+        }else{
             products.remove(iIndex);
             isRemoved=true;
         }
@@ -54,24 +60,23 @@ public class Inventory {
         try {
             lookup = products.get(iIndex);
         } catch (IndexOutOfBoundsException e){
-            e.getCause().toString();
+            System.err.println(e.getCause().toString());
         }
         return lookup;
     }
 
-    //Todo: make the calls to create the AddProd/ModProd stage ehre
     public void updateProduct(int iIndex){
         Product updateProd;
         try {
             updateProd = this.lookupProduct(iIndex);
             //Setup to show the window
             Parent modProdPane = new GridPane();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProd.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("productView.fxml"));
             try {
                 //Setup the parent
                 modProdPane = (Parent)loader.load();
                 //Get the reference to the controller class so
-                AddProdController controller =loader.<AddProdController>getController();
+                ProductController controller =loader.<ProductController>getController();
                 //We can populate the view with the part to be modified.
                 controller.setProduct(updateProd);
 
@@ -86,7 +91,8 @@ public class Inventory {
             secondaryStage.showAndWait();
 
         } catch (Exception e){
-
+            Alert error = new Alert(Alert.AlertType.ERROR, e.getMessage());
+            error.showAndWait();
         }
     }
 
@@ -105,19 +111,25 @@ public class Inventory {
     }
 
     public void addPart(Part newPart){
+        int i = parts.indexOf(newPart);
+        if (i == -1){
             parts.add(newPart);
+        }else{
+            parts.set(i, newPart);
+        }
+
     }
 
     public void updatePart(int index){
         Stage secondaryStage;
         //Setup to show the window
         Parent modPartPane = new GridPane();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPart.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("partView.fxml"));
         try {
             //Setup the parent
             modPartPane = (Parent)loader.load();
             //Get the reference to the controller class so
-            AddPartController controller =loader.<AddPartController>getController();
+            PartController controller =loader.<PartController>getController();
             //We can populate the view with the part to be modified.
             if (index >= 0) {
                 Part partToModify= this.getParts().get(index);

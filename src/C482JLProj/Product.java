@@ -1,10 +1,14 @@
 package C482JLProj;
 
-import com.sun.javafx.binding.StringFormatter;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 /**
  * ${FILENAME}
@@ -21,13 +25,12 @@ public class Product{
     public Product(){
 
     }
-
     //Used for testing
     public Product(String name){
         try {
             this.setName(name);
         }catch(Exception e){
-
+            //Ignore, this is only used for placeholders
         }
     }
 
@@ -145,8 +148,39 @@ public class Product{
         return retPart;
     }
 
+    /**
+     * Updates the part, adds it to the master inventory list
+     * @param iPartIndex
+     */
     public void updatePart(int iPartIndex){
-        Part updatePart = lookupPart(iPartIndex);
+        //This code will likely never be called as parts are updated from the master inventory list
+        Stage secondaryStage;
+        //Setup to show the window
+        Parent modPartPane = new GridPane();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("partView.fxml"));
+        try {
+            //Setup the parent
+            modPartPane = (Parent)loader.load();
+            //Get the reference to the controller class so
+            PartController controller =loader.<PartController>getController();
+            //We can populate the view with the part to be modified.
+            if (iPartIndex >= 0) {
+                Part partToModify= this.lookupPart(iPartIndex);
+
+                //Passes by reference, so this will be updated, then added to the
+                controller.modPart(-1, partToModify);
+
+                //Resume setting up
+                secondaryStage = new Stage();
+                secondaryStage.setScene(new Scene(modPartPane));
+
+                //Show and Wait to take away input from the main window
+                secondaryStage.showAndWait();
+
+            }
+        }catch (IOException ioExc){
+            ioExc.printStackTrace();
+        }
 
 
     }

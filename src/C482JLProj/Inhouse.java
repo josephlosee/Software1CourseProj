@@ -31,7 +31,6 @@ public class Inhouse extends Part{
         setPrice(price);
         setName(partName);
 
-
         try {
             setInstock(stock);
         } catch (Exception e){

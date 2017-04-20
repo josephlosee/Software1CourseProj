@@ -2,24 +2,17 @@ package C482JLProj;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-import java.io.IOException;
-
 /**
  * Created by Joe on 4/9/2017.
  */
-public class AddPartController {
+public class PartController {
     @FXML  ToggleGroup PartTypeGroup;
     @FXML  HBox osBox, ihBox;
     @FXML  TextField machNameField, compNameField, partMinField, partMaxField;

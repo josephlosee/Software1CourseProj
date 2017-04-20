@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by Joe on 4/16/2017.
  */
-public class AddProdController {
+public class ProductController {
     @FXML private
     TableView<Part> AllPartTView, productPartsTableView;
     @FXML private Text prodTitle;

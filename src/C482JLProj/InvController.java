@@ -1,5 +1,6 @@
 package C482JLProj;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,7 +42,7 @@ public class InvController {
         prodTableView.refresh();
     }
     @FXML
-    public void invPartSearchButton(ActionEvent e){
+    public void invPartSearchButton(){
         ObservableList<Part> filtered = FXCollections.observableArrayList();
         for(Part p: partObservList){
             if (p.getName().contains(invPartSearchField.getText())){
@@ -56,14 +57,22 @@ public class InvController {
         Parent addPartPane = new GridPane();
 
         try {
-            addPartPane = FXMLLoader.load(getClass().getResource("AddPart.fxml"));
+            addPartPane = FXMLLoader.load(getClass().getResource("partView.fxml"));
         }catch (IOException ioExc){
             ioExc.printStackTrace();
         }
+        Node source = (Node) e.getSource();
+        Window window = source.getScene().getWindow();
+        window.hide();
+
         secondaryStage = new Stage();
         secondaryStage.setScene(new Scene(addPartPane));
 
         secondaryStage.showAndWait();
+
+        Stage currentStage = (Stage)window;
+        currentStage.show();
+
         partTableSelectWorkaround();
 
     }
@@ -103,7 +112,7 @@ public class InvController {
             //Setup the parent
             modPartPane = (Parent)loader.load();
             //Get the reference to the controller class so
-            AddPartController controller =loader.<AddPartController>getController();
+            PartController controller =loader.<PartController>getController();
             //We can populate the view with the part to be modified.
             int index = partsTableView.getSelectionModel().getSelectedIndex();
             if (index >= 0) {
@@ -114,9 +123,6 @@ public class InvController {
                 //Resume setting up
                 secondaryStage = new Stage();
                 secondaryStage.setScene(new Scene(modPartPane));
-
-
-
                 //Show and Wait to take away input from the main window
                 secondaryStage.showAndWait();
             }
@@ -126,7 +132,6 @@ public class InvController {
 
     }
 
-    //TODO: Add logic to the data model in Inventory to prevent parts from being deleted if assigned to a product. Wishing for SQL
     @FXML public void delPartButtonClick(ActionEvent e){
         int index = partsTableView.getSelectionModel().getSelectedIndex();
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Delete the "+partObservList.get(index).getName()+"?");
@@ -155,7 +160,7 @@ public class InvController {
         Parent addPartPane = new GridPane();
 
         try {
-            addPartPane = FXMLLoader.load(getClass().getResource("AddProd.fxml"));
+            addPartPane = FXMLLoader.load(getClass().getResource("productView.fxml"));
         }catch (IOException ioExc){
             ioExc.printStackTrace();
         }
@@ -182,16 +187,18 @@ public class InvController {
     @FXML public void modProdClick(ActionEvent e){
         int index = prodTableView.getSelectionModel().getSelectedIndex();
 
-        Node source = (Node) e.getSource();
-        Window window = source.getScene().getWindow();
-        window.hide();
+        if (index>-1) {
+            Node source = (Node) e.getSource();
+            Window window = source.getScene().getWindow();
+            window.hide();
 
-        Main.getInventory().updateProduct(index);
+            Main.getInventory().updateProduct(index);
 
-        Stage currentStage = (Stage)window;
-        currentStage.show();
+            Stage currentStage = (Stage) window;
+            currentStage.show();
 
-        prodTableSelectWorkAround();
+            prodTableSelectWorkAround();
+        }
     }
 
     /**
@@ -208,6 +215,17 @@ public class InvController {
             error.showAndWait();
         }
         prodTableSelectWorkAround();
+    }
+
+    /**
+     * Exit via the button in the lower right
+     * @param e
+     */
+    @FXML public void exitButtonClicked(ActionEvent e){
+        Alert exitConfirm = new Alert(Alert.AlertType.CONFIRMATION, "Exit the program?");
+        exitConfirm.showAndWait()
+                .filter(response->response==ButtonType.OK)
+                .ifPresent(response-> Platform.exit());
     }
 
 }

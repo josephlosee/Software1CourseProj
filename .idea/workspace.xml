@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/ModPart.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/ModProd.fxml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/ModPart.fxml" afterPath="$PROJECT_DIR$/Unused/ModPart.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/ModPartController.java" afterPath="$PROJECT_DIR$/Unused/ModPartController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/ModProd.fxml" afterPath="$PROJECT_DIR$/Unused/ModProd.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/ModProdController.java" afterPath="$PROJECT_DIR$/Unused/ModProdController.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/AddPart.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/AddProd.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/InvMgmt.fxml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/AddPart.fxml" afterPath="$PROJECT_DIR$/Unused/AddPart.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/AddPartController.java" afterPath="$PROJECT_DIR$/src/C482JLProj/PartController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/AddProd.fxml" afterPath="$PROJECT_DIR$/src/C482JLProj/productView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/AddProdController.java" afterPath="$PROJECT_DIR$/src/C482JLProj/ProductController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/C482JLProj/InvMgmt.fxml" afterPath="$PROJECT_DIR$/Unused/InvMgmt.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/AddProd.fxml" afterPath="$PROJECT_DIR$/out/production/Software1CourseProj/C482JLProj/AddProd.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/AddPart.fxml" afterPath="$PROJECT_DIR$/src/C482JLProj/AddPart.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/AddPartController.java" afterPath="$PROJECT_DIR$/src/C482JLProj/AddPartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/AddProd.fxml" afterPath="$PROJECT_DIR$/src/C482JLProj/AddProd.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/AddProdController.java" afterPath="$PROJECT_DIR$/src/C482JLProj/AddProdController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Inhouse.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Inhouse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/InvController.java" afterPath="$PROJECT_DIR$/src/C482JLProj/InvController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Inventory.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Inventory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Outsourced.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Outsourced.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Part.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Part.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Main.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/C482JLProj/Product.java" afterPath="$PROJECT_DIR$/src/C482JLProj/Product.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -81,11 +77,12 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/C482JLProj/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="114">
+              <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1226#1227#0" expanded="true" />
+                <element signature="e#809#810#0" expanded="true" />
+                <element signature="e#839#840#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,22 +91,11 @@
       <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/C482JLProj/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+            <state relative-caret-position="182">
+              <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/C482JLProj/InvController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="133" column="10" lean-forward="false" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4700#4716#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,13 +104,70 @@
       <file leaf-file-name="Inventory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/C482JLProj/Inventory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+            <state relative-caret-position="114">
+              <caret line="125" column="29" lean-forward="false" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
               <folding>
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
-                <element signature="e#3594#3613#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+                <element signature="e#4083#4099#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/C482JLProj/InvController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="productView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/C482JLProj/productView.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Part.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/C482JLProj/Part.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="118" column="32" lean-forward="false" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/C482JLProj/PartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Inhouse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/C482JLProj/Inhouse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,22 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>modpro</find>
-      <find>secondary</find>
-      <find>pric</find>
-      <find>update</find>
-      <find>modProd</find>
-      <find>Product</find>
-      <find>ProdI</find>
-      <find>prodP</find>
-      <find>empty</find>
-      <find>part</find>
-      <find>updatePro</find>
-      <find>mod</find>
-      <find>addPart</find>
-      <find>addpart</find>
-      <find>modTab</find>
-      <find>obser</find>
       <find>setName</find>
       <find>addPar</find>
       <find>addpr</find>
@@ -170,7 +197,26 @@
       <find>getParts</find>
       <find>del</find>
       <find>delPart</find>
+      <find>delpar</find>
+      <find>addPart</find>
+      <find>Addpart</find>
+      <find>radio</find>
+      <find>tabl</find>
+      <find>TableView</find>
+      <find>fxml</find>
+      <find>Addp</find>
+      <find>margin</find>
+      <find>unused</find>
+      <find>modProd</find>
+      <find>equ</find>
+      <find>T</find>
+      <find>TODO</find>
+      <find>update</find>
+      <find>addpa</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\GitRepository\Software1CourseProj\src\C482JLProj</dir>
+    </dirStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -196,21 +242,24 @@
         <option value="$PROJECT_DIR$/src/C482JLProj/sample.fxml" />
         <option value="$PROJECT_DIR$/src/C482JLProj/Controller.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/ModPart.fxml" />
-        <option value="$PROJECT_DIR$/src/C482JLProj/Main.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/InvMgmt.fxml" />
         <option value="$PROJECT_DIR$/src/C482JLProj/ModPartController.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/ModProd.fxml" />
         <option value="$PROJECT_DIR$/src/C482JLProj/AddProd.fxml" />
         <option value="$PROJECT_DIR$/Unused/ModPartController.java" />
-        <option value="$PROJECT_DIR$/src/C482JLProj/AddProdController.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/AddPart.fxml" />
         <option value="$PROJECT_DIR$/src/C482JLProj/Outsourced.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/Part.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/Main.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/partView.fxml" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/AddPartController.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/PartController.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/AddProdController.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/C482JLProj/InvController.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/Inhouse.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/Product.java" />
         <option value="$PROJECT_DIR$/src/C482JLProj/Inventory.java" />
-        <option value="$PROJECT_DIR$/src/C482JLProj/AddPartController.java" />
-        <option value="$PROJECT_DIR$/src/C482JLProj/Part.java" />
-        <option value="$PROJECT_DIR$/src/C482JLProj/InvController.java" />
       </list>
     </option>
   </component>
@@ -315,6 +364,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -626,13 +676,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22986823" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -704,16 +755,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/C482JLProj/AddPartController.java</url>
-          <line>87</line>
+          <url>file://$PROJECT_DIR$/src/C482JLProj/Inventory.java</url>
+          <line>113</line>
           <properties />
-          <option name="timeStamp" value="60" />
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="63" />
+      <option name="time" value="64" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -726,7 +777,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/C482JLProj/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/C482JLProj/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -734,7 +784,7 @@
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -783,7 +833,7 @@
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,7 +882,7 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -862,17 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Unused/ModPart.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="53" column="61" lean-forward="true" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -911,7 +950,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/AddPart.fxml">
+    <entry file="file://$PROJECT_DIR$/Unused/AddPart.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
@@ -926,14 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="13" column="80" lean-forward="false" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Inhouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -954,60 +985,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/AddProd.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="60" column="25" lean-forward="true" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/AddProdController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/beans/property/StringPropertyBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/InvMgmt.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Part.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,8 +1022,8 @@
         <state relative-caret-position="110">
           <caret line="2494" column="0" lean-forward="false" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
           <folding>
-            <element signature="e#66617#66618#0" expanded="true" />
-            <element signature="e#66663#66664#0" expanded="true" />
+            <element signature="e#66617#66618#0" expanded="false" />
+            <element signature="e#66663#66664#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1054,52 +1036,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/AddPartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="137" column="12" lean-forward="false" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="1657" column="0" lean-forward="false" selection-start-line="1657" selection-start-column="0" selection-end-line="1657" selection-end-column="0" />
           <folding>
-            <element signature="e#66921#66922#0" expanded="true" />
+            <element signature="e#66921#66922#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unused/ModPart.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="74" lean-forward="false" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unused/InvMgmt.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#839#840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/partView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="108" column="69" lean-forward="false" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/productView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Part.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="118" column="32" lean-forward="false" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/InvController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/Inhouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/C482JLProj/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+        <state relative-caret-position="182">
+          <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4700#4716#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/C482JLProj/Inventory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+        <state relative-caret-position="114">
+          <caret line="125" column="29" lean-forward="false" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
           <folding>
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#3594#3613#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#4083#4099#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/C482JLProj/InvController.java">
+    <entry file="file://$PROJECT_DIR$/src/C482JLProj/PartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="133" column="10" lean-forward="false" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
+        <state relative-caret-position="123">
+          <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
